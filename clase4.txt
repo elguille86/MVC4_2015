@@ -1,0 +1,46 @@
+
+Cuando se modifica el Modelo , se debe modificar el conexto de creacion para que afecete al localdb
+
+comando para este proyecto ubicacion del Modelo personas
+
+
+HERRAMIENTAS / ADMINISTRADOR DE PAQUETES DE BIBLIOTECA / CONSOLA DE ADMINISTRADOR DE PAQUETES
+En Linea de comandos ejecuta esto, segun tu modelo
+
+	Enable-Migrations -ContextTyName EjemploModels.Models.PersonasDBContext
+
+Respuesa de la consola ---
+		Comprobando si el contexto indica una base de datos existente...
+		Se ha detectado una base de datos creada con un inicializador de base de datos. La migración con scaffold '201509041149339_InitialCreate' corresponde a la base de datos existente. Para usar una migración automática en su lugar, elimine la carpeta Migrations y especifique el parámetro -EnableAutomaticMigrations para ejecutar de nuevo Enable-Migrations.
+		Se ha habilitado Migraciones de Code First para el proyecto EjemploModels.	
+	
+	
+Una vez hecho nos creara esta directorio 
+
++---Migrations
+¦       201509041149339_InitialCreate.cs
+¦       201509041149339_InitialCreate.Designer.cs
+¦       201509041149339_InitialCreate.resx
+¦       Configuration.cs
+
+
+luego de tener activado el migration debemos ingresar estos comandos
+	Add-migration AgregarValidadores
+	
+	
+Respuesa de la consola ---
+		Aplicando técnica scaffolding a la migración 'AgregarValidadores'.
+		El código del diseñador de este archivo de migración incluye una instantánea del modelo actual de Code First. Esta instantánea se usa para calcular los cambios que se producirán en el modelo al aplicar la técnica scaffolding a la siguiente migración. Si realiza otros cambios en el modelo y desea incluirlos en esta migración, deberá ejecutar de nuevo 'Add-Migration 201509041204366_AgregarValidadores' para volver a aplicar la técnica scaffolding.	
+		
+		
+y luego ejecutacion las Actualizacion :
+	update-database		
+	
+	
+	Especifique el indicador '-Verbose' para ver las instrucciones SQL que se están aplicando a la base de datos de destino.
+	Aplicando las migraciones basadas en código: [201509041204366_AgregarValidadores].
+	Aplicando la migración basada en código: 201509041204366_AgregarValidadores.
+	Ejecutando el método Seed.
+		
+		
+Y Listo
